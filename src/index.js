@@ -8,6 +8,6 @@ const app = express();
 
 
 app.listen(3000, async () => {
-    await sequelize.sync();
+    await sequelize.sync({force: true, alter: true});
     console.log("Server started and DB synced");
 });

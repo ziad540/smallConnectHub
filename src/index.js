@@ -1,11 +1,13 @@
 import express from 'express';
 import sequelize from "./DB/dbConnection.js";
-import user from "./DB/models/Users/user.table.js";
-import Post from "./DB/models/Posts/post.table.js";
-import Comment from "./DB/models/Comments/comment.table.js"
+import {user, Post, Comment} from "../src/DB/Relations.js";
+import usersController from "./Modules/users/user.controller.js"
 
 const app = express();
+app.use(express.json());
 
+
+app.use('/users', usersController);
 
 app.listen(3000, async () => {
     await sequelize.sync({force: false, alter: true});

@@ -2,7 +2,6 @@ import {user} from "../../../DB/Relations.js";
 
 export const findEmail = async (req, res) => {
     try {
-        console.log(1212121);
         const {email} = req.query;
         if (!email) {
             return res.status(400).json("Please fill all required fields");
